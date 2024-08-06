@@ -1,7 +1,14 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { ChakraProvider } from '@chakra-ui/react';
+import {
+  Button,
+  ChakraProvider,
+  Container,
+  HStack,
+  StackItem,
+} from '@chakra-ui/react';
+import Link from 'next/link';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,9 +17,23 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to next-app!</title>
       </Head>
       <ChakraProvider>
-        <main className="app">
-          <Component {...pageProps} />
-        </main>
+        <Container>
+          <HStack as="header" p={4}>
+            <StackItem>
+              <Button as={Link} variant="link" href="/">
+                Home
+              </Button>
+            </StackItem>
+            <StackItem>
+              <Button as={Link} variant="link" href="/about">
+                About
+              </Button>
+            </StackItem>
+          </HStack>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </Container>
       </ChakraProvider>
     </>
   );
