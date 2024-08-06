@@ -1,3 +1,4 @@
+import { Container, Heading } from '@chakra-ui/react';
 import styles from './index.module.css';
 
 export function Index() {
@@ -7,13 +8,9 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.css file.
    */
   return (
-    <div className={styles.page}>
-      <div className="wrapper">
-        <div className="container">
-          <h1>Welcome!</h1>
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Heading>Welcome to the Next app!!!</Heading>
+    </Container>
   );
 }
 
